@@ -16,43 +16,48 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/request', function (Request $request) {
-    //$r = $request->header();
-    $r = $request->whenHas('keyword', function($input){
-        dd('x', $input);
-    });
 
-    if($r) {
-        dd('Faça alguma coisa!');
-    }
-
-    dd($r);
-    return 'x';
-})->name('request');
 
 //linkando a rota com o controller
-Route::get('/user/{user}',[UserController::class, 'show']);
+Route::get('/user/{user}',[UserController::class, 'show'])->name('user.show');
 
-Route::prefix('usuarios')->group(function() {
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+// Rotas para estudo
+
+// Route::prefix('usuarios')->group(function() {
     
-    Route::get('', function () {
-        return 'usuário';
-    })->name('usuarios');
+//     Route::get('', function () {
+//         return 'usuário';
+//     })->name('usuarios');
 
-    Route::get('/{id}', function () {
-        return 'Mostrar detalhes do usuário';
-    })->name('usuarios_show');
+//     Route::get('/{id}', function () {
+//         return 'Mostrar detalhes do usuário';
+//     })->name('usuarios_show');
 
-    Route::get('/{id}/tag', function () {
-        return 'Tags do usuário';
-    })->name('usuariosTags');
+//     Route::get('/{id}/tag', function () {
+//         return 'Tags do usuário';
+//     })->name('usuariosTags');
 
-});
+// });
 
-Route::get('/a-empresa/{string?}', function ($string = null) {
-    return $string;
-});
+// Route::get('/a-empresa/{string?}', function ($string = null) {
+//     return $string;
+// });
 
-Route::get('/users/{paramA}/{paramB}', function ($paramA, $paramB) {
-    return $paramA . ' - ' . $paramB;
-})->name('a-empresa');
+// Route::get('/request', function (Request $request) {
+//     //$r = $request->header();
+//     $r = $request->whenHas('keyword', function($input){
+//         dd('x', $input);
+//     });
+
+//     if($r) {
+//         dd('Faça alguma coisa!');
+//     }
+
+//     dd($r);
+//     return 'x';
+// })->name('request');
+
