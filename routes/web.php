@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,7 +27,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-// Rotas para estudo
+Route::get('business', [BusinessController::class, 'index']);
+
+// Rotas teste
 
 // Route::prefix('usuarios')->group(function() {
     
