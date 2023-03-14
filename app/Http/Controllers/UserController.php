@@ -9,6 +9,15 @@ class UserController extends Controller
 {
     public function index()
     {
+
+        // $user = User::create([
+        //     'name' => 'joao',
+        //     'email' => 'joao@gmail.com',
+        //     'password' => '12345'
+        // ]);
+
+        //dd($user);
+
         $users = User::all();
         return view('users', [
             'users' => $users
@@ -17,6 +26,14 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        // $user->posts()->create([
+        //     'title' => 'Meu segundo Post',
+        //     'body' => 'Isso é um Post',
+        //     'contents' => 'Textaa bonito'
+        // ]);
+
+        dd($user->posts);
+
         return view('user', [
             'name' => 'Gustavo',
             'user' => $user

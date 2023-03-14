@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 //linkando a rota com o controller
 Route::get('user/{user}',[UserController::class, 'show'])->name('user.show');
 Route::get('users',[UserController::class, 'index'])->name('user.index');
+Route::get('user',[UserController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
